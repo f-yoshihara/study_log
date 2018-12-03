@@ -1,0 +1,19 @@
+<h1>backlog</h1>
+<% @backlog.each do |book| %>
+  <p><%= link_to(book.title, "/books/#{book.id}") %></p>
+<% end %>
+
+<h1>in progress</h1>
+<% @in_progress.each do |book| %>
+  <p><%= link_to(book.title, "/books/#{book.id}") %></p>
+<% end %>
+
+<h1>review</h1>
+<% @review.each do |book| %>
+  <p><%= link_to(book.title, "/books/#{book.id}") %></p>
+<% end %>
+
+<h1>done</h1>
+<% @done.each do |book| %>
+  <p><%= link_to(book.title, "/books/#{book.id}") %></p>
+<% end %>
