@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  date: 2018-12-03
+  book: one
+  pages: 1
+  Impressions: MyText
+  pomodoros: 1
+  keyword0: MyString
+  keyword1: MyString
+  keyword2: MyString
+
+two:
+  title: MyString
+  date: 2018-12-03
+  book: two
+  pages: 1
+  Impressions: MyText
+  pomodoros: 1
+  keyword0: MyString
+  keyword1: MyString
+  keyword2: MyString

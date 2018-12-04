@@ -38,14 +38,14 @@
   </div>
 
 
-  <%= form.fields_for : do |school_form| %>
+  <%= form.fields_for : do |contents_form| %>
     <div class="field">
-      <%= school_form.label :name, '学校名' %>
-      <%= school_form.text_field :name, class: 'form-control typeahead', id: 'school_name', autocomplete: 'on' %>
+      <%= contents_form.label :name, '目次' %>
+      <%= contents_form.text_field :name, class: 'form-control typeahead', id: 'school_name', autocomplete: 'on' %>
     </div>
 
     <div class="field">
-      <%= school_form.select :category, School.categories.map { |k, v| [t("school.category.#{k}"), k]}%>
+      <%= contents_form.select :category, School.categories.map { |k, v| [t("school.category.#{k}"), k]}%>
     </div>
   <% end %>
 
