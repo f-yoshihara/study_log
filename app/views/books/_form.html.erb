@@ -13,11 +13,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :isbn, 'isbn' %>
-    <%= form.text_field :isbn %>
-  </div>
-
-  <div class="field">
     <%= form.label :price, '値段' %>
     <%= form.number_field :price %>
   </div>
@@ -37,7 +32,9 @@
     <%= form.text_area :purpose %>
   </div>
 
-
+<% 
+=begin
+%>
   <%= form.fields_for : do |contents_form| %>
     <div class="field">
       <%= contents_form.label :name, '目次' %>
@@ -48,6 +45,9 @@
       <%= contents_form.select :category, School.categories.map { |k, v| [t("school.category.#{k}"), k]}%>
     </div>
   <% end %>
+<% 
+=end
+%>
 
   <div class="actions">
     <%= form.submit %>
