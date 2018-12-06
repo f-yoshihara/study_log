@@ -19,8 +19,11 @@
         <%= link_to("書籍一覧", books_path) %>
       </li>
       <li>
-        <%= link_to("新規登録", new_book_path) %>
+        <%= link_to("書籍新規登録", new_book_path) %>
       </li>
+      <li>
+        <%= link_to("スニペット一覧", snippets_path) %>
+      </li>      
     </ul>
   </header>
     <% if flash[:notice] %>
