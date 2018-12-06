@@ -1,0 +1,23 @@
+<%= form_with(model: snippet, local: true) do |form| %>
+  <% if snippet.errors.any? %>
+    <div id="error_explanation">
+      <%= snippet.errors.full_messages do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code, 'コード' %>
+    <%= form.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category, 'カテゴリ' %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

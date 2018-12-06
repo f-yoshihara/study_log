@@ -1,2 +1,3 @@
-<h1>Snippets#index</h1>
-<p>Find me in app/views/snippets/index.html.erb</p>
+<% @snippets.each do |snippet| %>
+  <p><%= snippet.code %><%= link_to('編集', "/snippets/#{snippet.id}/edit")%></p>
+<% end %>
