@@ -1,5 +1,11 @@
 <h1><%= @book.title %></h1>
+<p>購入価格:</p>
 <p><%= @book.price %>円</p>
+<p>全ページ数:</p>
 <p><%= @book.pages %>ページ</p>
+<p>購入した日: </p>
 <p><%= @book.bought_at %>購入</p>
+<p>何ができるようになる？: </p>
 <p><%= @book.purpose %></p>
+<%= link_to('編集', edit_book_path) %> |
+<%= link_to '戻る', :back %>

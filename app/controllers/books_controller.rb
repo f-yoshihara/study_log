@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :destroy]
+  before_action :set_book, only: [:show, :destroy, :edit, :update]
 
   def index
     @books = Book.all.order(id: 'desc')
@@ -19,7 +19,19 @@ class BooksController < ApplicationController
     end
   end
 
+  def update
+    if @book.update(book_params)
+      flash[:notice] = "変更を保存しました"
+      redirect_to(books_path)
+    else
+      render(new_book_path)
+    end
+  end
+
   def show
+  end
+
+  def edit
   end
 
   def destroy
