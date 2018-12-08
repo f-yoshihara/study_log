@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'contents/index'
-  get 'contents/show'
-  get 'contents/edit'
-  get 'contents/new'
+  get 'contents/:id/new' => 'contents#new'
+  resources :contents, except: [:new]
   resources :snippets
   resources :books
   get '/' => 'kanban#index'

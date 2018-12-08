@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :destroy, :edit, :update]
+  before_action :set_contents, only: :show
 
   def index
     @books = Book.all.order(id: 'desc')
@@ -45,6 +46,10 @@ class BooksController < ApplicationController
   private
     def set_book
       @book = Book.find(params[:id])
+    end
+    
+    def set_contents
+      @contents = Content.where(book_id: params[:id])
     end
 
     def book_params

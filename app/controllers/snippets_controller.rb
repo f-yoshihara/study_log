@@ -1,5 +1,5 @@
 class SnippetsController < ApplicationController
-  before_action :set_snippet, only: [:show, :edit]
+  before_action :set_snippet, only: [:show, :edit, :update]
 
   def index
     @snippets = Snippet.all.order(id: 'desc')

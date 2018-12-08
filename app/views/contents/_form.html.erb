@@ -1,0 +1,25 @@
+<%= form_with(model: content, local: true) do |form| %>
+  <% if content.errors.any? %>
+    <div id="error_explanation">
+      <%= content.errors.full_messages do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :book_id, value: book.id %>
+
+  <div class="field">
+    <%= form.label :title, 'タイトル' %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pages, 'ページ数' %>
+    <%= form.text_field :pages %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
