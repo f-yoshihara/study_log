@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_09_104340) do
+ActiveRecord::Schema.define(version: 2018_12_09_055454) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "isbn"
@@ -42,15 +42,9 @@ ActiveRecord::Schema.define(version: 2018_12_09_104340) do
   end
 
   create_table "post_its", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "memo", null: false
+    t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status", default: 0, null: false
-    t.integer "parent_id"
-    t.integer "lft", null: false
-    t.integer "rgt", null: false
-    t.integer "depth", default: 0, null: false
-    t.integer "children_count", default: 0, null: false
   end
 
   create_table "snippets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
