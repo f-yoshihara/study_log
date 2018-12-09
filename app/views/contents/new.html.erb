@@ -1,5 +1,13 @@
 <h1>コンテンツ新規登録</h1>
 
-<%= render 'form', content: @content, book: @book %>
+<%= form_with(model: @content, local: true) do |form| %>
+  <%= render 'common_form', content: @content, form: form %>
+
+  <%= form.hidden_field :book_id, value: @book.id %>
+  
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Back', url_for(:back) %>

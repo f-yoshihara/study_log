@@ -1,2 +1,12 @@
-<h1>Contents#edit</h1>
-<p>Find me in app/views/contents/edit.html.erb</p>
+<h1>編集</h1>
+
+<%= form_with(model: @content, local: true) do |form| %>
+  <%= render 'common_form', content: @content, form: form %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to '詳細', @content %> |
+<%= link_to '戻る', :back %>

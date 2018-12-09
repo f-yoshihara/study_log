@@ -1,6 +1,6 @@
 class ContentsController < ApplicationController
   before_action :set_book, only: :new
-  before_action :set_content, only: :show
+  before_action :set_content, only: [:show, :edit]
 
   def index
   end
@@ -9,6 +9,15 @@ class ContentsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @content.update(content_params)
+      flash[:notice] = "変更を保存しました"
+      redirect_to(contents_path)
+    else
+      render(new_content_path)
+    end
   end
 
   def new
@@ -20,7 +29,6 @@ class ContentsController < ApplicationController
     if @content.save
       flash[:notice] = "コンテンツを登録しました"
       redirect_to("/books/#{@content.book.id}")
-      # redirect_to(book_path, @content.book.id)
     else
       render(new_content_path)
     end
