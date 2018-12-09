@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :check_logined, only: :create
   before_action :set_book, only: [:show, :destroy, :edit, :update]
   before_action :set_contents, only: :show
 

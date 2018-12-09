@@ -1,4 +1,5 @@
 class SnippetsController < ApplicationController
+  before_action :check_logined, only: :create
   before_action :set_snippet, only: [:show, :edit, :update]
 
   def index

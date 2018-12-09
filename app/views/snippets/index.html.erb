@@ -1,4 +1,7 @@
 <h1>スニペット一覧</h1>
+
+<%= link_to("post-it作成", new_snippet_path) %>
+
 <% @snippets.each do |snippet| %>
   <p><%= snippet.code %><%= link_to('編集', "/snippets/#{snippet.id}/edit")%></p>
 <% end %>

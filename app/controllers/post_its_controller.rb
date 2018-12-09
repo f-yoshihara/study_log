@@ -1,4 +1,5 @@
 class PostItsController < ApplicationController
+  before_action :check_logined, only: :create
   before_action :set_post_it, only: [:show, :destroy, :edit, :update]
 
   def index

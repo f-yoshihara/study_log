@@ -1,5 +1,5 @@
 <p><%= @post_it.created_at %>作成</p>
-<p><%= @post_it.updated_at if @post_it.created_at != @post_it.updated_at %>最終更新</p>
+<p><%= @post_it.updated_at + '最終更新' if @post_it.created_at != @post_it.updated_at %></p>
 <p><%= @post_it.memo %></p>
 
 <%= link_to('post-it編集', edit_post_it_path) %> |

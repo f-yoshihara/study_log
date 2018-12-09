@@ -1,4 +1,7 @@
 <h1>Post-it一覧</h1>
+
+<%= link_to("post-it作成", new_post_it_path) %>
+
 <% @post_its.each do |post_it| %>
   <p>
     <%= post_it.memo %>
