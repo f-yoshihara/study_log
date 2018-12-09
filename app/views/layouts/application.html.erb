@@ -27,6 +27,15 @@
       <li>
         <%= link_to("スニペット新規登録", new_snippet_path) %>
       </li>
+      <li>
+        <%= link_to("ログイン", auth_path) %>
+      </li>
+      <li>
+        <%= link_to("ログアウト", auth_destroy_path) %>
+      </li>
+      <li>
+        <%= current_user.name if current_user %>
+      </li>
     </ul>
   </header>
     <% if flash[:notice] %>
