@@ -1,2 +1,6 @@
-<h1>PostIts#edit</h1>
-<p>Find me in app/views/post_its/edit.html.erb</p>
+<h1>編集</h1>
+
+<%= render 'form', post_it: @post_it %>
+
+<%= link_to '詳細', @post_it %> |
+<%= link_to '戻る', :back %>

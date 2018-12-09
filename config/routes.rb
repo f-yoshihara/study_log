@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'post_its/index'
-  get 'post_its/show'
-  get 'post_its/new'
-  get 'post_its/edit'
+  resources :post_its
   get  'auth/'        => 'auth#new'
   post 'auth/create'  => 'auth#create'
   get  'auth/destroy' => 'auth#destroy'

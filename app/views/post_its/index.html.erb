@@ -1,2 +1,10 @@
-<h1>PostIts#index</h1>
-<p>Find me in app/views/post_its/index.html.erb</p>
+<h1>Post-it一覧</h1>
+<% @post_its.each do |post_it| %>
+  <p>
+    <%= post_it.memo %>
+    <%= link_to('詳細', post_it_path(post_it))%>
+    <%= link_to('編集', edit_post_it_path(post_it))%>
+  </p>
+<% end %>
+
+<%= link_to '戻る', url_for(:back) %>

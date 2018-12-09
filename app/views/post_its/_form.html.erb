@@ -1,0 +1,18 @@
+<%= form_with(model: post_it, local: true) do |form| %>
+  <% if post_it.errors.any? %>
+    <div id="error_explanation">
+      <%= post_it.errors.full_messages do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :memo, 'メモ' %>
+    <%= form.text_area :memo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
