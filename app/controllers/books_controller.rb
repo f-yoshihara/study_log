@@ -15,7 +15,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       flash[:notice] = "書籍を登録しました"
-      redirect_to(books_path)
+      redirect_to(books_kanban_path)
     else
       render(new_book_path)
     end
@@ -24,7 +24,7 @@ class BooksController < ApplicationController
   def update
     if @book.update(book_params)
       flash[:notice] = "変更を保存しました"
-      redirect_to(books_path)
+      redirect_to(books_kanban_path)
     else
       render(new_book_path)
     end
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: '書籍情報を削除しました。' }
+      format.html { redirect_to books_kanban_url, notice: '書籍情報を削除しました。' }
       format.json { head :no_content }
     end
   end

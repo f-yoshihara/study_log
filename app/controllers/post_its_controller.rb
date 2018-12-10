@@ -17,7 +17,7 @@ class PostItsController < ApplicationController
     @post_it = PostIt.new(post_it_params)
     if @post_it.save
       flash[:notice] = "書籍を登録しました"
-      redirect_to(post_its_path)
+      redirect_to(post_its_kanban_path)
     else
       render(new_post_it_path)
     end
@@ -29,7 +29,7 @@ class PostItsController < ApplicationController
   def update
     if @post_it.update(post_it_params)
       flash[:notice] = "変更を保存しました"
-      redirect_to(post_its_path)
+      redirect_to(post_its_kanban_path)
     else
       render(new_post_it_path)
     end
@@ -38,7 +38,7 @@ class PostItsController < ApplicationController
   def destroy
     @post_it.destroy
     respond_to do |format|
-      format.html { redirect_to post_its_url, notice: 'ポストイットを捨てました。' }
+      format.html { redirect_to post_its_kanban_url, notice: 'ポストイットを捨てました。' }
       format.json { head :no_content }
     end
   end

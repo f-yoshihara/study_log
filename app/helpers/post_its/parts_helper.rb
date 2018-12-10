@@ -1,0 +1,2 @@
+module PostIts::PartsHelper
+end
