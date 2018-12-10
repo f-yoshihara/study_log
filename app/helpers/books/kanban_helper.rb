@@ -1,0 +1,2 @@
+module Books::KanbanHelper
+end

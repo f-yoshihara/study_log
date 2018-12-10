@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :books do
+    get 'kanban/' => 'kanban#index'
+  end
   resources :post_its
   get  'auth/'        => 'auth#new'
   post 'auth/create'  => 'auth#create'
@@ -8,5 +11,4 @@ Rails.application.routes.draw do
   resources :contents, except: [:new]
   resources :snippets
   resources :books
-  get '/' => 'kanban#index'
 end
