@@ -1,2 +1,14 @@
-<h1>PostIts::Parts#index</h1>
-<p>Find me in app/views/post_its/parts/index.html.erb</p>
+<h3><%= @parent.memo %></h3>
+
+<%= link_to("部分post-it作成", post_its_path(@parent)) %>
+
+<% @parts.each do |part| %>
+  <p>
+    <%= part.memo %>
+    <%= link_to('詳細', post_it_path(part))%>
+    <%= link_to('編集', edit_post_it_path(part))%>
+    <%= link_to '削除', part, method: :delete, data: { confirm: 'このポストイットを捨ててもいいですか?' }%>
+  </p>
+<% end %>
+
+<%= link_to '戻る', url_for(:back) %>

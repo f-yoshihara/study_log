@@ -1,0 +1,29 @@
+<%= form_with(model: part, local: true) do |form| %>
+  <% if part.errors.any? %>
+    <div id="error_explanation">
+      <%= part.errors.full_messages do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :memo, 'メモ' %>
+    <%= form.text_area :memo %>
+  </div>
+
+  <div class="field">
+    <%= form.label '思いついた', for: :part_status_backlog %>
+    <%= form.radio_button :status, :backlog %>
+    <%= form.label 'やってる', for: :part_status_in_progress %>
+    <%= form.radio_button :status, :in_progress %>
+    <%= form.label '完了した', for: :part_status_done %>
+    <%= form.radio_button :status, :done %>
+    <%= form.label 'ゴミ箱に入れる', for: :part_status_deleted %>
+    <%= form.radio_button :status, :deleted %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

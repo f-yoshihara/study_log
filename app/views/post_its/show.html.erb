@@ -1,6 +1,9 @@
 <p><%= @post_it.created_at %>作成</p>
-<p><%= @post_it.updated_at + '最終更新' if @post_it.created_at != @post_it.updated_at %></p>
+<% unless @post_it.created_at == @post_it.updated_at %>
+  <p><%= @post_it.updated_at %>最終更新</p>
+<% end %>
 <p><%= @post_it.memo %></p>
 
 <%= link_to('post-it編集', edit_post_it_path) %> |
+<%= link_to('分割', post_its_path(@post_it)) %> |
 <%= link_to '戻る', :back %>

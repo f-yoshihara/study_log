@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   namespace :post_its do
-    get 'parts/:id/new' => 'parts#new'
-    get 'parts/:id' => 'parts#index'
+    post 'parts/:id' => 'parts#create' #post_its_parts_path
+    get 'parts/:id' => 'parts#new'
+    get 'parts/:id/index' => 'parts#index'
     get 'kanban/' => 'kanban#index'
   end
   namespace :books do
