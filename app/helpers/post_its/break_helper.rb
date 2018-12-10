@@ -1,0 +1,2 @@
+module PostIts::BreakHelper
+end
