@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :post_its do
+    get 'kanban/' => 'kanban#index'
+  end
   namespace :books do
     get 'kanban/' => 'kanban#index'
   end

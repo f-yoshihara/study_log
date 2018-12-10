@@ -1,0 +1,14 @@
+<h1>backlog</h1>
+<% @backlog.each do |post_it| %>
+  <p><%= link_to(post_it.memo, "/post_its/#{post_it.id}") %></p>
+<% end %>
+
+<h1>in progress</h1>
+<% @in_progress.each do |post_it| %>
+  <p><%= link_to(post_it.memo, "/post_its/#{post_it.id}") %></p>
+<% end %>
+
+<h1>done</h1>
+<% @done.each do |post_it| %>
+  <p><%= link_to(post_it.memo, "/post_its/#{post_it.id}") %></p>
+<% end %>
