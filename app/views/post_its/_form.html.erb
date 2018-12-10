@@ -12,6 +12,17 @@
     <%= form.text_area :memo %>
   </div>
 
+  <div class="field">
+    <%= form.label '思いついた', for: :book_status_backlog %>
+    <%= form.radio_button :status, :backlog %>
+    <%= form.label 'やってる', for: :book_status_in_progress %>
+    <%= form.radio_button :status, :in_progress %>
+    <%= form.label '完了した', for: :book_status_done %>
+    <%= form.radio_button :status, :done %>
+    <%= form.label 'ゴミ箱に入れる', for: :book_status_deleted %>
+    <%= form.radio_button :status, :deleted %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

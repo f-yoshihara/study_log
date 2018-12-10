@@ -35,12 +35,20 @@ class PostItsController < ApplicationController
     end
   end
 
+  def destroy
+    @post_it.destroy
+    respond_to do |format|
+      format.html { redirect_to post_its_url, notice: 'ポストイットを捨てました。' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     def set_post_it
       @post_it = PostIt.find(params[:id])
     end
 
     def post_it_params
-      params.require(:post_it).permit(:memo)
+      params.require(:post_it).permit(:memo, :status)
     end
 end

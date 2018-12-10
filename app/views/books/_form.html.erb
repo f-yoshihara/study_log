@@ -13,6 +13,21 @@
   </div>
 
   <div class="field">
+    <%= form.label '気になる', for: :book_status_wish %>
+    <%= form.radio_button :status, :wish %>
+    <%= form.label '積んでる', for: :book_status_backlog %>
+    <%= form.radio_button :status, :backlog %>
+    <%= form.label '読んでる', for: :book_status_in_progress%>
+    <%= form.radio_button :status, :in_progress %>
+    <%= form.label '復習してる', for: :book_status_review %>
+    <%= form.radio_button :status, :review %>
+    <%= form.label '終わった', for: :book_status_done %>
+    <%= form.radio_button :status, :done %>
+    <%= form.label 'ゴミ箱に入れる', for: :book_status_deleted %>
+    <%= form.radio_button :status, :deleted %>
+  </div>
+
+  <div class="field">
     <%= form.label :price, '値段' %>
     <%= form.number_field :price %>
   </div>
