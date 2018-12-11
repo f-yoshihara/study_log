@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  resources :post_its, except: :show
   namespace :post_its do
     get  'kanban'    => 'kanban#index'
-    post 'parts/:id' => 'parts#create' #post_its_parts_path
+    get  ':id'       => 'parts#index'
+    post 'parts/:id' => 'parts#create'
     get  'parts/:id' => 'parts#new'
-    get  '/:id'      => 'parts#index'
   end
+  resources :post_its, except: :show
+  # scope module: :post_its do
+  #   get  'post_it/:id'      => 'parts#index'
+  #   post 'post_it/parts/:id' => 'parts#create'
+  #   get  'post_it/parts/:id' => 'parts#new'
+  # end
   resources :books
   namespace :books do
     get 'kanban' => 'kanban#index'

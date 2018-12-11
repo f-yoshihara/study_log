@@ -1,4 +1,10 @@
-<h1>post_it作成</h1>
+<h1>分割</h1>
+
+<h2><%= @parent.memo %></h2>
+
+<% @parts.each do |part| %>
+  <h4><%= part.memo %></h4>
+<% end %>
 
 <%= render 'form', part: @part, parent: @parent %>
 

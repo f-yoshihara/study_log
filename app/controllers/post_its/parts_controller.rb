@@ -7,6 +7,7 @@ class PostIts::PartsController < ApplicationController
 
   def new
     @part = PostIt.new
+    @parts = PostIt.where(parent_id: @parent.id)
   end
 
   def create

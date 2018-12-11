@@ -1,4 +1,4 @@
-<%= form_with(model: part, local: true) do |form| %>
+<%= form_with(model: part, url: "/post_its/parts/#{parent.id}", local: true) do |form| %>
   <% if part.errors.any? %>
     <div id="error_explanation">
       <%= part.errors.full_messages do |message| %>
