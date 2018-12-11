@@ -16,7 +16,7 @@ class PostItsController < ApplicationController
   def create
     @post_it = PostIt.new(post_it_params)
     if @post_it.save
-      flash[:notice] = "書籍を登録しました"
+      flash[:notice] = "post-itを作成しました"
       redirect_to(post_its_kanban_path)
     else
       render(new_post_it_path)

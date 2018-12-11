@@ -3,7 +3,7 @@
 <h3><%= @parent.memo %></h3>
 
 <%= link_to('post-it編集', edit_post_it_path) %> |
-<%= link_to("部分post-it作成", "/post_its/parts/#{@parent.id}") %><br>
+<%= link_to("部分post-it作成", "/post_its/parts/#{@parent.id}/new") %><br>
 
 <% @parts.each do |part| %>
   <p>
