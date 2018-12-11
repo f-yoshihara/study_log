@@ -1,13 +1,12 @@
 class PostIts::PartsController < ApplicationController
   before_action :set_parent, only: [:index, :new, :create]
+  before_action :set_parts,  only: [:index, :new]
 
   def index
-    @parts = PostIt.where(parent_id: @parent.id)
   end
 
   def new
     @part = PostIt.new
-    @parts = PostIt.where(parent_id: @parent.id)
   end
 
   def create
@@ -21,6 +20,10 @@ class PostIts::PartsController < ApplicationController
   end  
 
   private
+    def set_parts
+      @parts = PostIt.where(parent_id: @parent.id)
+    end
+
     def set_parent
       @parent = PostIt.find(params[:id])
     end

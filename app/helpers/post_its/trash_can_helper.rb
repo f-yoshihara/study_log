@@ -1,0 +1,2 @@
+module PostIts::TrashCanHelper
+end
