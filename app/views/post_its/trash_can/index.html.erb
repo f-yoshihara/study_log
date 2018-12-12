@@ -1,2 +1,14 @@
-<h1>PostIts::TrashCan#index</h1>
-<p>Find me in app/views/post_its/trash_can/index.html.erb</p>
+<h1>ゴミ箱</h1>
+
+<%= link_to("post-it作成", new_post_it_path) %>
+
+<% @trash.each do |trash| %>
+  <p>
+    <%= trash.memo %>
+    <%= link_to '詳細', post_it_path(trash) %>
+    <%= link_to '編集', edit_post_it_path(trash) %>
+    <%= link_to 'カンバンに戻す', post_it_path(trash, post_it: {status: :backlog}), method: :patch %>
+  </p>
+<% end %>
+
+<%= link_to '戻る', url_for(:back) %>

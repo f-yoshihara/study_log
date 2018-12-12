@@ -1,14 +1,23 @@
 <h1>backlog</h1>
 <% @backlog.each do |post_it| %>
-  <p><%= link_to(post_it.memo, "/post_its/#{post_it.id}") %></p>
+  <p>
+    <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
+    <%= link_to 'ゴミ箱に入れる', post_it_path(post_it, post_it: {status: :deleted}), method: :patch %>
+  </p>
 <% end %>
 
 <h1>in progress</h1>
 <% @in_progress.each do |post_it| %>
-  <p><%= link_to(post_it.memo, "/post_its/#{post_it.id}") %></p>
+  <p>
+    <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
+    <%= link_to 'ゴミ箱に入れる', post_it_path(post_it, post_it: {status: :deleted}), method: :patch %>
+  </p>
 <% end %>
 
 <h1>done</h1>
 <% @done.each do |post_it| %>
-  <p><%= link_to(post_it.memo, "/post_its/#{post_it.id}") %></p>
+  <p>
+    <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
+    <%= link_to 'ゴミ箱に入れる', post_it_path(post_it, post_it: {status: :deleted}), method: :patch %>
+  </p>
 <% end %>
