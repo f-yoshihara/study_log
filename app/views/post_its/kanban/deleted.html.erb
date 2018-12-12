@@ -1,0 +1,14 @@
+<h1>deleted</h1>
+
+<%= link_to("post-it作成", new_post_it_path) %>
+
+<% @post_its.each do |post_it| %>
+  <p>
+    <%= post_it.memo %>
+    <%= link_to '詳細', post_it_path(post_it) %>
+    <%= link_to '編集', edit_post_it_path(post_it) %>
+    <%= link_to 'カンバンに戻す', post_it_path(post_it, post_it: {status: :backlog}), method: :patch %>
+  </p>
+<% end %>
+
+<%= link_to '戻る', url_for(:back) %>
