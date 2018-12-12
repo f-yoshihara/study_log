@@ -27,7 +27,18 @@ class PostItsController < ApplicationController
   end
 
   def update
-    if @post_it.update(post_it_params)
+    params_hash = post_it_params.to_h
+
+    case params_hash[:status]
+    when 'in_progress'
+      params_hash[:in_progress_from] = DateTime.now
+    when 'done'
+      params_hash[:done_at]          = DateTime.now
+    when 'deleted'
+      params_hash[:deleted_at]       = DateTime.now
+    end
+
+    if @post_it.update(params_hash)
       flash[:notice] = "変更を保存しました"
       redirect_to(post_its_kanban_path)
     else
