@@ -2,6 +2,8 @@
 <% @backlog.each do |post_it| %>
   <p>
     <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
+    <%= link_to '取りかかる', post_it_path(post_it, post_it: {status: :in_progress}), method: :patch %>
+    <%= link_to '完了した！', post_it_path(post_it, post_it: {status: :done}), method: :patch %>
     <%= link_to 'ゴミ箱に入れる', post_it_path(post_it, post_it: {status: :deleted}), method: :patch %>
   </p>
 <% end %>
@@ -10,6 +12,8 @@
 <% @in_progress.each do |post_it| %>
   <p>
     <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
+    <%= link_to '在庫に戻す', post_it_path(post_it, post_it: {status: :backlog}), method: :patch %>
+    <%= link_to '完了した！', post_it_path(post_it, post_it: {status: :done}), method: :patch %>
     <%= link_to 'ゴミ箱に入れる', post_it_path(post_it, post_it: {status: :deleted}), method: :patch %>
   </p>
 <% end %>
@@ -18,6 +22,8 @@
 <% @done.each do |post_it| %>
   <p>
     <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
+    <%= link_to '在庫に戻す', post_it_path(post_it, post_it: {status: :backlog}), method: :patch %>
+    <%= link_to '取りかかる', post_it_path(post_it, post_it: {status: :in_progress}), method: :patch %>
     <%= link_to 'ゴミ箱に入れる', post_it_path(post_it, post_it: {status: :deleted}), method: :patch %>
   </p>
 <% end %>
