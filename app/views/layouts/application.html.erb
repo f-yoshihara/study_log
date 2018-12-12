@@ -10,48 +10,51 @@
   </head>
 
   <body>
-  <header>
-    <div class="header-logo">
-      <%= link_to("Learn Log", "/") %>
-    </div>
-    <ul class="header-menus">
-      <li>
-        <%= link_to("書籍カンバン", books_kanban_path) %>
-      </li>
-      <li>
-        <%= link_to("書籍新規登録", new_book_path) %>
-      </li>
-      <li>
-        <%= link_to("スニペット一覧", snippets_path) %>
-      </li>   
-      <li>
-        <%= link_to("スニペット新規登録", new_snippet_path) %>
-      </li>
-      <li>
-        <%= link_to("post-it作成", new_post_it_path) %>
-      </li>
-      <li>
-        <%= link_to("post-itカンバン", post_its_kanban_path) %>
-      </li>
-      <li>
-        <%= link_to("ゴミ箱", post_its_trash_can_path) %>
-      </li>
-      <li>
-        <%= link_to("ログイン", auth_path) %>
-      </li>
-      <li>
-        <%= link_to("ログアウト", auth_destroy_path) %>
-      </li>
-      <li>
-        <%= current_user.name if current_user %>
-      </li>
-    </ul>
-  </header>
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Kanban</a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="Navber">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to("書籍カンバン", books_kanban_path, class: :'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("書籍新規登録", new_book_path, class: :'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("スニペット一覧", snippets_path, class: :'nav-link') %>
+          </li>   
+          <li class="nav-item">
+            <%= link_to("スニペット新規登録", new_snippet_path, class: :'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("post-it作成", new_post_it_path, class: :'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("post-itカンバン", post_its_kanban_path, class: :'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("ゴミ箱", post_its_trash_can_path, class: :'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("ログイン", auth_path, class: :'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("ログアウト", auth_destroy_path, class: :'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= current_user.name if current_user %>
+          </li>
+        </ul>
       </div>
-    <% end %>
-    <%= yield %>
+    </nav>
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <%= yield %>
   </body>
 </html>
