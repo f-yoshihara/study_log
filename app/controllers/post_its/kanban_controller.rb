@@ -14,7 +14,7 @@ class PostIts::KanbanController < ApplicationController
     end
 
     def set_done
-      @done = PostIt.where(status: :done)
+      @done = PostIt.where(status: :done, done_at: Time.current.all_day)
     end
 
     def set_deleted
