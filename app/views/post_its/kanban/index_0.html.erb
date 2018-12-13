@@ -1,0 +1,38 @@
+<div class="d-flex row">
+  <div class="card col-sm-4">
+    <h1>backlog <%= fa_icon("folder") %></h1>
+    <% @backlog.each do |post_it| %>
+      <div class="card">
+        <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %> 
+        <%= link_to fa_icon("edit"), edit_post_it_path(post_it), class: :'btn btn-light col-sm-3' %>
+        <%= link_to fa_icon("folder-open"), post_it_path(post_it, post_it: {status: :in_progress}), method: :patch, class: :'btn btn-success' %>
+        <%= link_to fa_icon("check"), post_it_path(post_it, post_it: {status: :done}), method: :patch, class: :'btn btn-primary' %>
+        <%= link_to fa_icon("trash"), post_it_path(post_it, post_it: {status: :deleted}), method: :patch, class: :'btn btn-info' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="card col-sm-4">
+    <h1>in progress <%= fa_icon("folder-open") %></h1>
+    <% @in_progress.each do |post_it| %>
+      <div class="card  col-sm-6">
+        <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
+        <%= link_to fa_icon("edit"), edit_post_it_path(post_it), class: :'btn btn-light' %>
+        <%= link_to fa_icon("folder"), post_it_path(post_it, post_it: {status: :backlog}), method: :patch, class: :'btn btn-secondary' %>
+        <%= link_to fa_icon("check"), post_it_path(post_it, post_it: {status: :done}), method: :patch, class: :'btn btn-primary' %>
+        <%= link_to fa_icon("trash"), post_it_path(post_it, post_it: {status: :deleted}), method: :patch, class: :'btn btn-info' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="card col-sm-4">
+    <h1>done <%= fa_icon("check") %></h1>
+    <% @done.each do |post_it| %>
+      <p>
+        <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
+        <%= link_to fa_icon("edit"), edit_post_it_path(post_it), class: :'btn btn-light' %>
+        <%= link_to fa_icon("folder"), post_it_path(post_it, post_it: {status: :backlog}), method: :patch, class: :'btn btn-secondary' %>
+        <%= link_to fa_icon("folder-open"), post_it_path(post_it, post_it: {status: :in_progress}), method: :patch, class: :'btn btn-success' %>
+        <%= link_to fa_icon("trash"), post_it_path(post_it, post_it: {status: :deleted}), method: :patch, class: :'btn btn-info' %>
+      </p>
+    <% end %>
+  </div>
+</div>

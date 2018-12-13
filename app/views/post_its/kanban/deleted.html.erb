@@ -2,7 +2,7 @@
 
 <%= link_to("post-it作成", new_post_it_path) %>
 
-<% @post_its.each do |post_it| %>
+<% @deleted.each do |post_it| %>
   <p>
     <%= post_it.memo %>
     <%= link_to '詳細', post_it_path(post_it) %>
