@@ -10,42 +10,36 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Kanban</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white mb-3">
+      <a class="navbar-brand text-white" href="/post_its/kanban">Kanban</a>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="Navber">
-        <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse justify-content-end" id="Navber">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <%= link_to("書籍カンバン", books_kanban_path, class: :'nav-link') %>
+            <%= link_to("書籍カンバン", books_kanban_path, class: :'nav-link text-white') %>
           </li>
           <li class="nav-item">
-            <%= link_to("書籍新規登録", new_book_path, class: :'nav-link') %>
+            <%= link_to("書籍新規登録", new_book_path, class: :'nav-link text-white') %>
           </li>
           <li class="nav-item">
-            <%= link_to("スニペット一覧", snippets_path, class: :'nav-link') %>
-          </li>   
-          <li class="nav-item">
-            <%= link_to("スニペット新規登録", new_snippet_path, class: :'nav-link') %>
+            <%= link_to("スニペット一覧", snippets_path, class: :'nav-link text-white') %>
           </li>
           <li class="nav-item">
-            <%= link_to("post-it作成", new_post_it_path, class: :'nav-link') %>
+            <%= link_to("ゴミ箱", post_its_kanban_deleted_path, class: :'nav-link text-white') %>
           </li>
           <li class="nav-item">
-            <%= link_to("post-itカンバン", post_its_kanban_path, class: :'nav-link') %>
+            <%= link_to("ログイン", auth_path, class: :'nav-link text-white') unless current_user %>
           </li>
           <li class="nav-item">
-            <%= link_to("ゴミ箱", post_its_kanban_deleted_path, class: :'nav-link') %>
+            <%= link_to("ログアウト", auth_destroy_path, class: :'nav-link text-white') if current_user %>
           </li>
           <li class="nav-item">
-            <%= link_to("ログイン", auth_path, class: :'nav-link') %>
+            <%= link_to fa_icon("code"), new_snippet_path, class: :'btn btn-light mr-4' %>
           </li>
           <li class="nav-item">
-            <%= link_to("ログアウト", auth_destroy_path, class: :'nav-link') %>
-          </li>
-          <li class="nav-item">
-            <%= current_user.name if current_user %>
+            <%= link_to fa_icon("file"), new_post_it_path, class: :'btn btn-light mr-4' %>
           </li>
         </ul>
       </div>
