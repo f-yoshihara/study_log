@@ -11,10 +11,10 @@ Rails.application.routes.draw do
     post 'parts/:id'     => 'parts#create'
     get  'parts/:id/new' => 'parts#new'
   end
-  resources :books
   namespace :books do
     get 'kanban' => 'kanban#index'
   end
+  resources :books
   get  'auth'         => 'auth#new'
   post 'auth/create'  => 'auth#create'
   get  'auth/destroy' => 'auth#destroy'
