@@ -1,6 +1,5 @@
-<h1>deleted</h1>
-
-<%= link_to("post-it作成", new_post_it_path) %>
+<h1 class='ml-4'><%= fa_icon("trash") %></h1>
+<%= link_to("new post-it", new_post_it_path) %>
 
 <% @deleted.each do |post_it| %>
   <p>

@@ -1,24 +1,44 @@
-<h1>wish</h1>
-<% @wish.each do |book| %>
-  <p><%= link_to(book.title, "/books/#{book.id}") %></p>
-<% end %>
-
-<h1>backlog</h1>
-<% @backlog.each do |book| %>
-  <p><%= link_to(book.title, "/books/#{book.id}") %></p>
-<% end %>
-
-<h1>in progress</h1>
-<% @in_progress.each do |book| %>
-  <p><%= link_to(book.title, "/books/#{book.id}") %></p>
-<% end %>
-
-<h1>review</h1>
-<% @review.each do |book| %>
-  <p><%= link_to(book.title, "/books/#{book.id}") %></p>
-<% end %>
-
-<h1>done</h1>
-<% @done.each do |book| %>
-  <p><%= link_to(book.title, "/books/#{book.id}") %></p>
-<% end %>
+<div class="container-fluid d-flex row">
+  <div class="col-sm-2 border-right">
+  <a href="/post_its/new" class="text-dark">
+    <h1><%= fa_icon("star") %> <%= @wish.count%></h1>
+  </a>
+    <% @wish.each do |book| %>
+      <p class="border-top">
+        <%= link_to(book.title, "/books/#{book.id}") %>
+      </p>
+    <% end %>
+  </div>
+  <div class="col-sm-3 border-right">
+    <h1><%= fa_icon("folder") %> <%= @backlog.count%></h1>
+    <% @backlog.each do |book| %>
+      <p class="border-top">
+        <%= link_to(book.title, "/books/#{book.id}") %>
+      </p>
+    <% end %>
+  </div>
+  <div class="col-sm-3 border-right">
+    <h1><%= fa_icon("folder-open") %> <%= @in_progress.count%></h1>
+    <% @in_progress.each do |book| %>
+      <p class="border-top">
+        <%= link_to(book.title, "/books/#{book.id}") %>
+      </p>
+    <% end %>
+  </div>
+  <div class="col-sm-2 border-right">
+    <h1><%= fa_icon("undo") %> <%= @review.count%></h1>
+    <% @review.each do |book| %>
+      <p class="border-top">
+        <%= link_to(book.title, "/books/#{book.id}") %>
+      </p>
+    <% end %>
+  </div>
+  <div class="col-sm-2">
+    <h1><%= fa_icon("check") %> <%= @done.count%></h1>
+    <% @done.each do |book| %>
+      <p class="border-top">
+        <%= link_to(book.title, "/books/#{book.id}") %>
+      </p>
+    <% end %>
+  </div>
+</div>
