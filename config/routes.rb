@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :calendar, only: :index
   resources :post_its, except: :show
   namespace :post_its do
     get  'kanban'             => 'kanban#index'
