@@ -1,6 +1,8 @@
 <div class="container-fluid d-flex row">
   <div class="col-sm-4 border-right">
-    <h1><%= fa_icon("folder") %> <%= @backlog.count%></h1>
+    <a href="/post_its/kanban/backlog" class="text-dark">
+      <h1><%= fa_icon("folder") %> <%= @backlog.count%></h1>
+    </a>
       <% @backlog.each do |post_it| %>
         <p class="border-top">
           <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
@@ -8,7 +10,9 @@
       <% end %>
   </div>
   <div class="col-sm-4 border-right">
-    <h1><%= fa_icon("folder-open") %> <%= @in_progress.count%></h1>
+    <a href="/post_its/kanban/in_progress" class="text-dark">
+      <h1><%= fa_icon("folder-open") %> <%= @in_progress.count%></h1>
+    </a>
     <% @in_progress.each do |post_it| %>
       <p class="border-top">
         <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
@@ -16,7 +20,9 @@
     <% end %>
   </div>
   <div class="col-sm-4">
-    <h1><%= fa_icon("check") %> <%= @done.count%></h1>
+    <a href="/post_its/kanban/done" class="text-dark">
+      <h1><%= fa_icon("check") %> <%= @done.count%></h1>
+    </a>
     <% @done.each do |post_it| %>
       <p class="border-top">
         <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
