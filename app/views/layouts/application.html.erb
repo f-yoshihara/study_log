@@ -11,16 +11,34 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white mb-3">
-      <a class="navbar-brand text-white" href="/post_its/kanban">Kanban</a>
-      <div class="btn-group btn-group-sm" role="group" aria-label="kanban-menu">
+      <a class="navbar-brand text-white ml-4 mr-4" href="/post_its/kanban">Kanban</a>
+      <div class="btn-group btn-group-sm mr-5" role="group" aria-label="kanban-menu">
         <%= link_to fa_icon("file"), post_its_kanban_path, class: :'btn btn-secondary' %>
         <%= link_to fa_icon("book"), books_kanban_path, class: :'btn btn-secondary' %>
+        <%= link_to fa_icon("calendar"), calendar_index_path, class: :'btn btn-secondary' %>
       </div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to fa_icon("file"), new_post_it_path, class: :'btn btn-light mr-4' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to fa_icon("book"), new_book_path, class: :'btn btn-light mr-4' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to fa_icon("code"), new_snippet_path, class: :'btn btn-light mr-4' %>
+        </li>
+      </ul>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="Navber">
         <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to("login", auth_path, class: :'nav-link text-white mr-4') unless current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to('logout', auth_destroy_path, class: :'nav-link text-white mr-4') if current_user %>
+          </li>
           <li class="nav-item dropdown">
             <%= link_to(fa_icon("list"), books_kanban_path, class: :'nav-link text-white mr-4', role: :button, :'data-toggle' => :dropdown, :'aria-haspopup' => true, :'aria-expanded' => false ) %>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -28,23 +46,11 @@
               <%= link_to('trash can', post_its_kanban_deleted_path, class: :'dropdown-item') %>
             </div>
           </li>
-
-          <li class="nav-item">
-            <%= link_to("login", auth_path, class: :'nav-link text-white mr-4') unless current_user %>
-          </li>
-          <li class="nav-item">
-            <%= link_to('logout', auth_destroy_path, class: :'nav-link text-white mr-4') if current_user %>
-          </li>
-          <li class="nav-item">
-            <%= link_to fa_icon("book"), new_book_path, class: :'btn btn-light mr-4' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to fa_icon("code"), new_snippet_path, class: :'btn btn-light mr-4' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to fa_icon("file"), new_post_it_path, class: :'btn btn-light mr-4' %>
-          </li>
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
     </nav>
       <% if flash[:notice] %>

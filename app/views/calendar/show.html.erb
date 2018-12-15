@@ -1,0 +1,4 @@
+<h1><%= @date %></h1>
+<% @done.each do |post_it| %>
+  <p><%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %></p>
+<% end %>
