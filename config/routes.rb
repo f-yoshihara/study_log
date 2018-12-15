@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :calendar, only: [:index, :show]
   resources :post_its, except: :show
   namespace :post_its do
+    get  'search'             => 'search#index'
     get  'kanban'             => 'kanban#index'
     get  'kanban/backlog'     => 'kanban#backlog'
     get  'kanban/in_progress' => 'kanban#in_progress'

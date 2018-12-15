@@ -1,0 +1,2 @@
+module PostIts::SearchHelper
+end
