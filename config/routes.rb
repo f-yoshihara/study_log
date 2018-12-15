@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :snippets do
-    get 'search' => 'search#index'
+    post 'search' => 'search#index'
   end
   resources :calendar, only: [:index, :show]
   resources :post_its, except: :show
