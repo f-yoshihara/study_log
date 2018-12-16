@@ -1,12 +1,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.8/clipboard.min.js"></script>
 
 <% @snippets.each do |snippet| %>
-  <p>
-    <input id="snippet<%= snippet.id %>" value= "<%= snippet.code %>" type="text" size="100" >
-    <button class="btn btn-secondary" data-clipboard-target="#snippet<%= snippet.id %>">
+  <div class="d-flex mt-4">
+    <%= form_with(model: snippet, local: true) do |form| %>
+      <%= form.text_field :code, id: "test#{snippet.id}", size: 100 %>
+      <%= form.submit('update', class: :'btn btn-secondary mr-2') %>
+    <% end %>
+    <button class="btn btn-info" data-clipboard-target="#test<%= snippet.id %>">
       <%= fa_icon("clipboard") %>
     </button>
-  </p>
+  </div>
 <% end %>
 
 <script>
