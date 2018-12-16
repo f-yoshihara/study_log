@@ -1,4 +1,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.8/clipboard.min.js"></script>
+
+<h1 class='ml-4'><%= fa_icon("code") %></h1>
+
+<%= link_to("new snippet", new_snippet_path) %>
+
+<% @snippets.each do |snippet| %>
+  <div class="d-flex mt-4">
+    <%= form_with(model: snippet, local: true) do |form| %>
+      <%= form.text_field :code, id: "test#{snippet.id}", size: 100 %>
+      <%= form.submit('update', class: :'btn btn-secondary mr-2') %>
+    <% end %>
+    <button class="btn btn-info" data-clipboard-target="#test<%= snippet.id %>">
+      <%= fa_icon("clipboard") %>
+    </button>
+  </div>
+<% end %>
+
+<%= link_to '戻る', url_for(:back) %>
+
 <script>
   var clipboard = new Clipboard('.btn');
   clipboard.on('success', function(e) {
@@ -8,20 +27,3 @@
     console.error('Trigger:', e.trigger);
   });
 </script>
-
-<h1 class='ml-4'><%= fa_icon("code") %></h1>
-
-<%= link_to("new snippet", new_snippet_path) %>
-
-<% @snippets.each do |snippet| %>
-  <p>
-    <input id="snippet<%= snippet.id %>" value= "<%= snippet.code %>" type="text" size="100" >
-    <button class="btn btn-secondary" data-clipboard-target="#snippet<%= snippet.id %>">
-      <%= fa_icon("copy") %>
-    </button>
-    <%#= link_to(fa_icon("edit"), "/snippets/#{snippet.id}/edit")%>
-    <%#= link_to fa_icon("trash"), post_it_path(post_it, post_it: {status: :deleted}), method: :patch, class: :'btn btn-info' %>
-  </p>
-<% end %>
-
-<%= link_to '戻る', url_for(:back) %>
