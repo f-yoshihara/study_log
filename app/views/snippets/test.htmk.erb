@@ -1,0 +1,8 @@
+<p>
+  <input id="<%= snippet.id %>" value= "<%= snippet.code %>" >
+  <button class="btn btn-secondary" data-clipboard-target="#<%= snippet.id %>">
+    <%= fa_icon("code") %>
+  </button>
+</p>
+
+  <p><%#= snippet.code %><%#= link_to('編集', "/snippets/#{snippet.id}/edit")%></p>

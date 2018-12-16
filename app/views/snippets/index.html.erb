@@ -1,9 +1,27 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.8/clipboard.min.js"></script>
+<script>
+  var clipboard = new Clipboard('.btn');
+  clipboard.on('success', function(e) {
+    console.info('Trigger:', e.trigger);
+  });
+  clipboard.on('error', function(e) {
+    console.error('Trigger:', e.trigger);
+  });
+</script>
+
 <h1 class='ml-4'><%= fa_icon("code") %></h1>
 
 <%= link_to("new snippet", new_snippet_path) %>
 
 <% @snippets.each do |snippet| %>
-  <p><%= snippet.code %><%= link_to('編集', "/snippets/#{snippet.id}/edit")%></p>
+  <p>
+    <input id="snippet<%= snippet.id %>" value= "<%= snippet.code %>" type="text" size="100" >
+    <button class="btn btn-secondary" data-clipboard-target="#snippet<%= snippet.id %>">
+      <%= fa_icon("copy") %>
+    </button>
+    <%#= link_to(fa_icon("edit"), "/snippets/#{snippet.id}/edit")%>
+    <%#= link_to fa_icon("trash"), post_it_path(post_it, post_it: {status: :deleted}), method: :patch, class: :'btn btn-info' %>
+  </p>
 <% end %>
 
 <%= link_to '戻る', url_for(:back) %>
