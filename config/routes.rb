@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   resources :contents, except: [:new]
   get 'contents/:id/new' => 'contents#new'
   resources :snippets
+  get '/' => 'home#top'
 end
