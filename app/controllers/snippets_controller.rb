@@ -1,12 +1,9 @@
 class SnippetsController < ApplicationController
-  before_action :check_logined, only: :create
-  before_action :set_snippet, only: [:show, :edit, :update]
+  before_action :check_logined
+  before_action :set_snippet, only: [:edit, :update]
 
   def index
-    @snippets = Snippet.all.order(id: 'desc')
-  end
-
-  def show
+    @snippets = @user.snippets.order(id: 'desc')
   end
 
   def new
@@ -41,6 +38,6 @@ class SnippetsController < ApplicationController
     end
 
     def snippet_params
-      params.require(:snippet).permit(:code, :category)
+      params.require(:snippet).permit(:code, :category, :user_id)
     end
 end
