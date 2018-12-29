@@ -3,7 +3,7 @@ class SnippetsController < ApplicationController
   before_action :set_snippet, only: [:edit, :update]
 
   def index
-    @snippets = @user.snippets.order(id: 'desc')
+    @snippets = Snippet.where(user_id: @user)
   end
 
   def new
