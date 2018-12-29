@@ -1,4 +1,5 @@
 class PostIts::KanbanController < ApplicationController
+  before_action :check_logined
   before_action :set_backlog,       only: [:index, :backlog]
   before_action :set_in_progress,   only: [:index, :in_progress]
   before_action :set_done,          only: [:index, :done]

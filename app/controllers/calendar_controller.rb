@@ -1,4 +1,5 @@
 class CalendarController < ApplicationController
+  before_action :check_logined
   def index
     @done = PostIt.all
   end

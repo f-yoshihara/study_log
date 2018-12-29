@@ -1,4 +1,5 @@
 class Books::KanbanController < ApplicationController
+  before_action :check_logined
   def index
     @wish        = Book.where(status: :wish)
     @backlog     = Book.where(status: :backlog)
