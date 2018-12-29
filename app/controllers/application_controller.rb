@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       end
       unless @user
         flash[:referer] = request.fullpath
-        redirect_to controller: :auth, action: :new
+        redirect_to auth_path
       end
     end
 end
