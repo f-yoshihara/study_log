@@ -11,19 +11,19 @@ class PostIts::KanbanController < ApplicationController
 
   private
     def set_backlog
-      @backlog = PostIt.where(status: :backlog)
+      @backlog = PostIt.where(status: :backlog, user_id: @user)
     end
 
     def set_in_progress
-      @in_progress = PostIt.where(status: :in_progress)
+      @in_progress = PostIt.where(status: :in_progress, user_id: @user)
     end
 
     def set_done
-      @done = PostIt.where(status: :done, done_at: Time.current.all_day)
+      @done = PostIt.where(status: :done, done_at: Time.current.all_day, user_id: @user)
     end
 
     def set_deleted
-      @deleted = PostIt.where(status: :deleted)
+      @deleted = PostIt.where(status: :deleted, user_id: @user)
     end
 
     def destroy_old_trash

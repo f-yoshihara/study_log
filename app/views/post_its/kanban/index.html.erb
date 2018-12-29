@@ -4,8 +4,9 @@
       <h1><%= fa_icon("folder") %> <%= @backlog.count%></h1>
     </a>
       <% @backlog.each do |post_it| %>
-        <p class="border-top">
-          <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}") %>
+        <p class="border-top d-flex row">
+          <%= link_to(post_it.memo, "/post_its/parts/#{post_it.id}", class: :'col-11') %>
+          <%#= link_to(fa_icon("play"), post_it_path(post_it, post_it: {status: :in_progress}), method: :patch, class: :'btn btn-info col-1 btn-sm') %>
         </p>
       <% end %>
   </div>
