@@ -29,6 +29,6 @@ class PostIts::PartsController < ApplicationController
     end
 
     def part_params
-      params.require(:post_it).permit(:memo, :status)
+      params.require(:post_it).permit(:memo, :status, :user_id)
     end
 end
