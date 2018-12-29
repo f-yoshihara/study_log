@@ -47,8 +47,18 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: study_log_production
+#   username: study_log
+#   password: <%= ENV['STUDY_LOG_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
-  database: study_log_production
-  username: study_log
-  password: <%= ENV['STUDY_LOG_DATABASE_PASSWORD'] %>
+  adapter:  mysql2
+  encoding: utf8
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host:     <%= ENV['DB_HOSTNAME'] %>
+  port:     <%= ENV['DB_PORT'] %>
