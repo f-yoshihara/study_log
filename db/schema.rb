@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_141705) do
+ActiveRecord::Schema.define(version: 2018_12_29_055338) do
 
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "isbn"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 2018_12_18_141705) do
     t.datetime "in_progress_from"
     t.datetime "done_at"
     t.datetime "deleted_at"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_post_its_on_user_id"
   end
 
   create_table "snippets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,5 +76,6 @@ ActiveRecord::Schema.define(version: 2018_12_18_141705) do
   end
 
   add_foreign_key "contents", "books"
+  add_foreign_key "post_its", "users"
   add_foreign_key "snippets", "users"
 end
